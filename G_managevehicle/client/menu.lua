@@ -128,7 +128,11 @@ function Menu()
                         onSelected = function(list)
                             if list == 1 then
                                 local perso = KeyboardInput("Choisissez votre vitesse :", "", 3)
-                                SetVehicleMaxSpeed(GetVehiclePedIsIn(PlayerPedId(), false), perso / 3.701)
+                                if perso == nil then
+                                    ESX.ShowNotification("Vitesse Invalide")
+                                else
+                                    SetVehicleMaxSpeed(GetVehiclePedIsIn(PlayerPedId(), false), perso / 3.701)
+                                end
                             elseif list == 2 then
                                 SetVehicleMaxSpeed(GetVehiclePedIsIn(PlayerPedId(), false), 8.1)
                             elseif list == 3 then
